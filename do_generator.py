@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-s = (x * x for x in range(5))
+s = (x * x for x in range(1, 11))
 print(s)
-
 for x in s:
     print(x)
 
@@ -13,10 +12,20 @@ def fib(max):
     while n < max:
         yield b
         a, b = b, a + b
-        n += 1
+        n = n + 1
+
     return 'done'
 
 f = fib(10)
 print('fib(10):', f)
 for x in f:
     print(x)
+
+g = fib(5)
+while 1:
+    try:
+        x = next(g)
+        print('g', x)
+    except StopIteration as e:
+        print(e.value)
+        break
