@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+ 
+{% block title %}欢迎光临首页{% endblock %}
+ 
+{% block content %}
+这里是首页，欢迎光临<br/>
+    {{ string }}<br/>
+    教程列表：
+    {% for i in TutorialList %}
+    {{ i }}
+    {% endfor %}
+    站点：{{ info_dict.site }}内容：{{ info_dict.content }}<br/>
+    {% for key, value in info_dict.items %}
+    {{ key }}: {{ value }}
+    {% for item in List %}
+        {{ item }}{% if not forloop.last %},{% endif %}
+    {% endfor %}
+{% endfor %}
+{% endblock %}
